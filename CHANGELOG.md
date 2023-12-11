@@ -7,6 +7,47 @@ Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- Convert `SECRET_KEY` into a required env var
+- Add `required: false` to `depends_on` in `docker-compose.yml` (requires Docker Compose v2.20.2+)
+- Refactor `create_celery_app` function to be compatible with Python 3.12+
+
+#### Languages and services
+
+- Update `Python` to `3.12.1`
+- Update `Node` to `20.6.1`
+- Update `Postgres` to `16.1`
+- Update `Redis` to `7.2.3`
+
+#### Back-end dependencies
+
+- Update `Flask-DB` to `0.4.0`
+- Update `Flask-DebugToolbar` to `0.14.1`
+- Update `Flask-SQLAlchemy` to `3.1.1`
+- Update `Flask-Static-Digest` to `0.4.0` (now it optionally supports Brotli compression)
+- Update `Flask` to `3.0.0`
+- Update `SQLAlchemy` to `2.0.23`
+- Update `alembic` to `1.13.0`
+- Update `black` to `23.11.0`
+- Update `celery` to `5.3.6`
+- Update `flake8` to `6.1.0`
+- Update `gunicorn` to `21.2.0`
+- Update `psycopg` to `3.1.14`
+- Update `pytest-cov` to `4.1.0`
+- Update `pytest` to `7.4.3`
+- Update `redis` to `5.0.1`
+- Update `werkzeug` to `3.0.1`
+
+#### Front-end dependencies
+
+- Update `autoprefixer` to `10.4.16`
+- Update `esbuild` to `0.19.8`
+- Update `postcss` to `8.4.32`
+- Update `tailwindcss` to `3.3.6`
+
+## [0.11.0] - 2023-05-13
+
 ### Added
 
 - Ability to customize `UID` and `GID` if you're not using `1000:1000` (check the `.env.example` file)
@@ -21,36 +62,40 @@ Changelog](https://keepachangelog.com/en/1.0.0/).
 - Adjust Hadolint to exit > 0 if any style warnings are present
 - Rename `esbuild.config.js` to `esbuild.config.mjs` and refactor config for esbuild 0.17+
 - In `hello/up/views.py`, update raw SQL `SELECT 1` health check for SQLAlchemy 2.0
+- Explicitly set `DEBUG` config option based off the `FLASK_DEBUG` env var so the intent is clear
 
 #### Languages and services
 
-- Update `Python` to `3.11.2`
-- Update `Node` to `18.10.0`
-- Update `Postgres` to `15.2`
-- Update `Redis` to `7.0.8`
+- Update `Python` to `3.11.3`
+- Update `Node` to `18.15.0`
+- Update `Postgres` to `15.3`
+- Update `Redis` to `7.0.11`
 
 #### Back-end dependencies
 
+- Replace `psycopg2` with `psycopg` (3.1.9)
 - Update `Flask-SQLAlchemy` to `3.0.3`
-- Update `Flask` to `2.2.3`
-- Update `SQLAlchemy-Utils` to `0.40.0`
-- Update `SQLAlchemy` to `2.0.3`
-- Update `alembic` to `1.9.4`
-- Update `black` to `23.1.0`
+- Update `Flask-Static-Digest` to `0.3.0`
+- Update `Flask` to `2.3.2`
+- Update `SQLAlchemy-Utils` to `0.41.1`
+- Update `SQLAlchemy` to `2.0.13`
+- Update `alembic` to `1.10.4`
+- Update `black` to `23.3.0`
 - Update `flake8` to `6.0.0`
 - Update `isort` to `5.12.0`
-- Update `psycopg2` to `2.9.5`
+- Update `psycopg2` to `2.9.6`
 - Update `pytest-cov` to `4.0.0`
-- Update `pytest` to `7.2.1`
-- Update `redis` to `4.5.1`
+- Update `pytest` to `7.3.1`
+- Update `redis` to `4.5.5`
+- Update `werkzeug` to `2.3.4`
 
 #### Front-end dependencies
 
-- Update `autoprefixer` to `10.4.13`
-- Update `esbuild` to `0.17.8`
+- Update `autoprefixer` to `10.4.14`
+- Update `esbuild` to `0.17.19`
 - Update `postcss-import` to `15.1.0`
-- Update `postcss` to `8.4.21`
-- Update `tailwindcss` to `3.2.7`
+- Update `postcss` to `8.4.23`
+- Update `tailwindcss` to `3.3.2`
 
 ### Removed
 
@@ -364,7 +409,8 @@ Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Everything!
 
-[Unreleased]: https://github.com/nickjj/docker-flask-example/compare/0.10.0...HEAD
+[Unreleased]: https://github.com/nickjj/docker-flask-example/compare/0.11.0...HEAD
+[0.11.0]: https://github.com/nickjj/docker-flask-example/compare/0.10.0...0.11.0
 [0.10.0]: https://github.com/nickjj/docker-flask-example/compare/0.9.0...0.10.0
 [0.9.0]: https://github.com/nickjj/docker-flask-example/compare/0.8.0...0.9.0
 [0.8.0]: https://github.com/nickjj/docker-flask-example/compare/0.7.0...0.8.0

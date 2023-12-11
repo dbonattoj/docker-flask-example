@@ -14,7 +14,7 @@ practices](https://nickjanetakis.com/blog/best-practices-around-production-ready
 based on building and deploying dozens of assorted Dockerized web apps since
 late 2014.
 
-**This app is using Flask 2.2.3 and Python 3.11.2**. The screenshot doesn't get
+**This app is using Flask 3.0.0 and Python 3.12.1**. The screenshot doesn't get
 updated every time I bump the versions:
 
 [![Screenshot](.github/docs/screenshot.jpg)](https://github.com/nickjj/docker-flask-example/blob/main/.github/docs/screenshot.jpg?raw=true)
@@ -130,8 +130,10 @@ README.
 You'll also need to enable Docker Compose v2 support if you're using Docker
 Desktop. On native Linux without Docker Desktop you can [install it as a plugin
 to Docker](https://docs.docker.com/compose/install/linux/). It's been generally
-available for a while now and very stable. This project uses a specific Docker
-Compose profiles feature that only works with Docker Compose v2.
+available for a while now and is stable. This project uses specific [Docker
+Compose v2
+features](https://nickjanetakis.com/blog/optional-depends-on-with-docker-compose-v2-20-2)
+that only work with Docker Compose v2 2.20.2+.
 
 If you're using Windows, it will be expected that you're following along inside
 of [WSL or WSL
@@ -145,7 +147,7 @@ these commands for PowerShell if you want.
 git clone https://github.com/nickjj/docker-flask-example helloflask
 cd helloflask
 
-# Optionally checkout a specific tag, such as: git checkout 0.10.0
+# Optionally checkout a specific tag, such as: git checkout 0.11.0
 ```
 
 #### Copy an example .env file because the real one is git ignored:
@@ -166,6 +168,10 @@ docker compose up --build
 
 Now that everything is built and running we can treat it like any other Flask 
 app.
+
+Did you receive a `depends_on` "Additional property required is not allowed"
+error? Please update to at least Docker Compose v2.20.2+ or Docker Desktop
+4.22.0+.
 
 Did you receive an error about a port being in use? Chances are it's because
 something on your machine is already running on port 8000. Check out the docs
